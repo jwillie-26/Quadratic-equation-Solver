@@ -1,26 +1,58 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdbool.h>
 
-int main(){
-    double a, b, c, d, root1, root2, real, img;
-    printf("\t\tFinding the root of a quadratic equation...\n");
-    printf("\n\t\tEnter coefficient a, b and c : \n");
-    scanf("%f%f%F", &a, &b, &c);
+int main() {
+  float hours, rate, salary, overtime, overtimePay;
 
-d = b * b - 4 * a * c;
-if(d > 0){
-    root1 = (-b + sqrt(d)) / (2 * a);
-    root2 = (-b - sqrt(d)) / (2 * a);
-    printf("\n\t root1 = %.2f and root2 = %.2f", root1, root2);
-}
-else if(d == 0){
-    root1 = root2 = -b / (2 * a);
-    printf("root1 = root2 = %.2f;", root1);
-}
-else{
-    real = -b / (2 * a);
-    img = sqrt(-d) / (2 * a);
-    printf("root1 = %.2f+%2fi and root2 = %.2f-%.2fi", real, img,real, img);
-}
-    return 0;
-}
+
+  while (true) {
+        printf("\tPAY PROGRAM: \n\n");
+        printf("Enter the number of hours worked (ranging from 1): ");
+        scanf("%f", &hours);
+        if (hours == 0){
+            return 0;
+        }
+
+
+        printf( "Enter hourly rate of the worker (ksh 00.00): ");
+        scanf( "%f", &rate );
+
+        salary = hours * rate;
+        if ( hours <= 40 )  {
+          printf( "salary is %.2f\n", salary );
+        }
+
+        if ( hours > 40 ) {
+          overtime = hours - 40;
+          overtimePay = overtime * rate / 2;
+          salary = salary + overtimePay;
+          printf( "Salary  is %.2f\n", salary );
+        }
+        break;
+  }
+
+        double income, tax;
+        char quit = ' ';
+
+        //Loop for multiple operations
+        while(quit != 'q' && quit != 'Q') {
+
+            //Getting input from the user
+            printf("\n\n\nInput your annual income:\t");
+            scanf("%1f", &income);
+
+
+            if (income <= 204000) {
+                tax = (income - 250000) * 30 / 100;
+            }
+
+            else if (income >= 204000) {
+                tax = (income - 650000) * 50 / 100;
+            }
+
+        }
+
+
+     return 0;
+    }
+
